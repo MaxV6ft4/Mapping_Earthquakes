@@ -16,7 +16,6 @@ let satelliteStreets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/sate
 });
 
 // We create the third tile layer that will be the background of our map.
-// We create the second tile layer that will be the background of our map.
 let dark = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}', {
 	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
 	maxZoom: 18,
@@ -43,7 +42,7 @@ let plateTectonics = new L.LayerGroup();
 let majorEarthquakes = new L.LayerGroup();
 
 
-// Add a reference to the tectonic plates group to the overlays object.
+// Add a reference to the tectonic plates and major earthquakes groups to the overlays object.
 let overlays = {
   "Earthquakes": allEarthquakes,
   "Tectonics": plateTectonics,
@@ -215,6 +214,6 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
       weight: 3
     }
   }).addTo(plateTectonics);
-
+  //add the tectonic layer to our map.
   plateTectonics.addTo(map);
 });
